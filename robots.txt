@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://antoinepdev.github.io/sitemap-index.xml
