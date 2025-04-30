@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://antoinepdev/.github.io/cinee",
+  site: "https://antoinepdev.github.io",
+  base: "cinee",
   integrations: [tailwind(), sitemap()],
 });
