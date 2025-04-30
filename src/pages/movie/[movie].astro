@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from "../../layouts/Layout.astro"
+import Grid from "../../components/Grid.astro"
+import Timeline from "../../components/ui/Timeline.astro"
+
+
+export async function getStaticPaths() {
+  const movies = await getCollection("movies")
+  return movies.map(movie => ({
+    params: {movie: movie.slug.split("-").slice(1).join("-")},
+    props: 
+    {
+      movie: movie.data,
+      slug: movie.slug.split("-").slice(1).join("-")
+    }
+  }))
+}
+
+const {movie, slug} = Astro.props
+
+const movies = await getCollection("movies")
+movies.reverse()
+let recommendedMovieList;
+if (movie.popular === true) recommendedMovieList = movies.filter(m => m.data.popular === true)
+else if (movie.year == 2025) recommendedMovieList = movies.filter(m => m.data.year == 2025)
+else recommendedMovieList = movies
+
+const recommendedMovies = recommendedMovieList.length < 5 ? recommendedMovieList : recommendedMovieList.splice(0, 4)
+
+const title = `Descargar ${movie.title} Completamente Gratis | Cinee`
+const desc = `Descarga la película "${movie.title}" completamente gratis. Año: ${movie.year}. Género: ${movie.genre.join(', ')}.`
+const keywords = `descargar ${movie.title}, ${movie.title} español latino, películas gratis, cine latino`
+const ogUrl= `/movie/${slug}`
+
+---
+
+<Layout title={title} desc={desc} keywords={keywords} ogUrl={ogUrl} ogImg={movie.img}>
+  <main class="w-full max-w-6xl mx-auto px-4 py-10 flex flex-col lg:flex-row gap-10 items-start">
+    {/* Movie Image */}
+    <picture class="w-full lg:w-1/2">
+      <img
+        src={movie.img}
+        decoding="async"
+        loading="lazy"
+        alt={`Ver y descargar ${movie.title} en español latino (${movie.year})`}
+        class="w-full h-auto rounded-lg shadow-lg object-cover"
+      />
+    </picture>
+  
+    {/* Movie Info */}
+    <div class="w-full lg:w-1/2 flex flex-col gap-4 text-[#EAEAEA]">
+      <a
+        href={movie.url}
+        target="_blank"
+        class="mt-4 bg-[#9C27B0] hover:bg-[#7B1FA2] text-white text-center text-lg font-semibold px-6 py-3 rounded shadow-lg transition duration-300"
+        aria-label={`Acceder a la película ${movie.title} en Telegram`}
+      >
+        Obtener ahora
+      </a>
+  
+      <div class="w-full mx-auto border border-gray-700 rounded p-4">
+        <p class="text-xl mb-3 font-bold outline-gray-500">¿Cómo descargar cualquier película?</p>
+        <Timeline />
+      </div>
+  
+      <h1 class="text-3xl md:text-4xl font-bold">{movie.title}</h1>
+      <p class="text-[#B0BEC5] text-sm">Año: {movie.year}</p>
+      <p class="text-[#B0BEC5] text-sm">Idioma: {movie.language}</p>
+      <p class="text-[#B0BEC5] text-sm">Calidad: {movie.quality}</p>
+      <div class="flex flex-wrap gap-2 text-sm text-[#B0BEC5] italic">
+        {movie.genre?.map((genre) => (
+          <span
+            class="bg-[#1E1E1E] px-3 py-1 rounded-full border border-[#B0BEC5]"
+          >
+            {genre}
+          </span>
+        ))}
+      </div>
+      <p class="text-base leading-relaxed">{movie.description}</p>
+    </div>
+  </main>
+
+  <section class="my-8 mx-4">
+    <h2 class="text-title text-2xl font-bold mb-6">También te puede gustar</h2>
+    <Grid movies = {recommendedMovies} path="/movies/all/1"/>
+  </section>
+
+
+</Layout>

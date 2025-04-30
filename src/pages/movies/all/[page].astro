@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from "../../../layouts/Layout.astro"
+import Grid from "../../../components/Grid.astro"
+import Pagination from '../../../components/ui/Pagination.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const movies = await getCollection("movies")
+  movies.reverse()
+  return paginate(movies, {pageSize: 10})
+}
+
+const { page } = Astro.props;
+const movies = page.data
+
+const title = `Películas Gratis en Español - Página ${page.currentPage} | Cinee`
+const desc = `Explora nuestra colección completa de películas gratis en español latino, castellano y subtitulado. Página ${page.currentPage}. Disfruta de cine online: acción, comedia, terror y más.`
+const ogUrl = `/movies/all/${page.currentPage}`
+---
+<Layout title={title} desc={desc} ogUrl={ogUrl}>
+  <main class="px-4 py-10 flex flex-col gap-6">
+
+    <h1 class="font-extrabold text-2xl">
+      Películas en Español Latino - Página {page.currentPage}
+    </h1>
+
+    <Grid movies={movies} />
+    <Pagination page={page.url} />
+  </main>
+</Layout>
+

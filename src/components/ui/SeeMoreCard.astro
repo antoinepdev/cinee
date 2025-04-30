@@ -1,0 +1,23 @@
+---
+const {path} = Astro.props
+const description = "Este texto nunca se mostrará es solo para hacer la card del mismo tamañoEste texto nunca se mostrará es solo para hacer la card del mismo tamañoEste texto nunca se mostrará es solo para hacer la card del mismo tamañoEste texto nunca se mostrará es solo para hacer la card del mismo tamañoEste texto nunca se mostrará es solo para hacer la card del mismo tamaño"
+---
+
+<article
+  class="bg-secondary rounded-md p-4 w-full h-full relative flex flex-col"
+>
+  <div class="w-full h-48 mb-3 flex justify-center items-center text-9xl">+</div>
+  <h3 class="text-[#EAEAEA] text-lg font-semibold opacity-0">Ver más</h3>
+  <p class="text-[#B0BEC5] text-sm mb-1 opacity-0">Pulsa para ver más</p>
+  <p class="text-[#B0BEC5] text-sm mb-1 opacity-0">Pulsa para ver más</p>
+  <p class="text-[#B0BEC5] text-xs italic mb-1 opacity-0">Pulsa para ver más</p>
+  <p class="text-[#B0BEC5] text-sm mb-2 line-clamp-3 opacity-0">
+    {description.length > 100
+      ? description.slice(0, 100) + '...'
+      : description}
+  </p>
+  <a href={path} class="bg-btn text-white text-center px-4 py-2 rounded hover:opacity-90 transition font-extrabold mt-auto">
+    Ver Todas
+  </a>
+  <p class="z-10 text-subtitle text-center text-sm absolute bottom-[70px] left-4">Pulsa en "Ver Todas" para ver todas las películas de esta sección.</p>
+</article>

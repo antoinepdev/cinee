@@ -1,0 +1,35 @@
+
+---
+import { getCollection } from 'astro:content';
+import Layout from "../../../layouts/Layout.astro"
+import Grid from "../../../components/Grid.astro"
+import Pagination from '../../../components/ui/Pagination.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const allMovies = await getCollection("movies")
+  allMovies.reverse()
+  const movies = allMovies.filter(movie => movie.data.year == 2025)
+  return paginate(movies, {pageSize: 10})
+}
+
+const { page } = Astro.props;
+const movies = page.data
+
+const title = `Películas 2025 Gratis en Español - Página ${page.currentPage} | Cinee`
+const desc = `Disfruta de los mejores estrenos de películas del 2025 en español latino, castellano y subtitulado completamente gratis. Página ${page.currentPage}. Acción, comedia, terror, romance y más.`
+const ogUrl = `/movies/2025/${page.currentPage}`
+const keywords = "películas 2025, estrenos 2025, descargar películas 2025, películas gratis español latino, cine latino 2025"
+
+---
+<Layout title={title} desc={desc} ogUrl={ogUrl} keywords={keywords}>
+  <main class="px-4 py-10 flex flex-col gap-6">
+
+    <h1 class="font-extrabold text-2xl">
+      Películas en Español Latino - Página {page.currentPage}
+    </h1>
+
+    <Grid movies={movies} />
+    <Pagination page={page.url} />
+  </main>
+</Layout>
+

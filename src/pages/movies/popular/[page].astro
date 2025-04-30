@@ -1,0 +1,35 @@
+
+---
+import { getCollection } from 'astro:content';
+import Layout from "../../../layouts/Layout.astro"
+import Grid from "../../../components/Grid.astro"
+import Pagination from '../../../components/ui/Pagination.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const allMovies = await getCollection("movies")
+  allMovies.reverse()
+  const movies = allMovies.filter(movie => movie.data.popular === true)
+  return paginate(movies, {pageSize: 10})
+}
+
+const { page } = Astro.props;
+const movies = page.data
+
+const title = `Películas Más Populares Gratis en Español - Página ${page.currentPage} | Cinee`
+const desc = `Explora las películas más vistas y recomendadas en español latino, castellano y subtitulado. Descarga gratis los éxitos más populares del momento. Página ${page.currentPage}.`
+const ogUrl = `/movies/popular/${page.currentPage}`
+const keywords = "películas populares, top películas, películas más vistas, cine latino gratis, top películas 2025, descargar películas recomendadas"
+
+---
+<Layout title={title} desc={desc} ogUrl={ogUrl} keywords={keywords}>
+  <main class="px-4 py-10 flex flex-col gap-6">
+
+    <h1 class="font-extrabold text-2xl">
+      Películas en Español Latino - Página {page.currentPage}
+    </h1>
+
+    <Grid movies={movies} />
+    <Pagination page={page.url} />
+  </main>
+</Layout>
+

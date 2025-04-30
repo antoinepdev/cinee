@@ -1,11 +1,41 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content'
+import Layout from '../layouts/Layout.astro'
+import Slider from "../components/Slider.astro"
+import Grid from "../components/Grid.astro"
+const title = "Descargar Películas Gratis en Español | Cinee"
+const desc = "Descarga películas gratis en español latino, castellano y subtitulado en calidad HD. Estrenos 2025, populares, clásicos, acción, comedia y más."
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const allMovies = await getCollection("movies")
+allMovies.reverse()
+
+const all2025Movies = allMovies.filter(movie => movie.data.year == 2025)
+const movies2025 = all2025Movies.length < 5 ? all2025Movies : all2025Movies.splice(0, 4)
+
+
+const allPopularMovies = allMovies.filter(movie => movie.data.popular === true && movie.data.year != 2025)
+const popularMovies = allPopularMovies.length < 5 ? allPopularMovies : allPopularMovies.splice(0, 4)
+
+const movies = allMovies.length < 5 ? allMovies : allMovies.splice(0, 4)
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={title} desc={desc} ogUrl="/">
+  <main class="px-4">
+    <h1 class="font-extrabold text-3xl my-6">Películas Gratis en Español Latino</h1>
+
+    <section class="my-8">
+      <h2 class="text-title text-2xl font-bold mb-6">Estrenos 2025</h2>
+      <Slider movies = {movies2025}/>
+    </section>
+
+    <section class="my-8">
+      <h2 class="text-title text-2xl font-bold mb-6">Películas Populares del Momento</h2>
+      <Slider movies = {popularMovies}/>
+    </section>
+
+    <section class="my-8">
+      <h2 class="text-title text-2xl font-bold mb-6">Catálogo Completo de Películas</h2>
+      <Grid movies = {movies} path="/movies/all/1"/>
+    </section>
+  </main>
 </Layout>

@@ -1,0 +1,27 @@
+---
+import Card from "./ui/Card.astro"
+import SeeMoreCard from "./ui/SeeMoreCard.astro"
+const {movies, path=undefined} = Astro.props
+---
+ <div
+  class="movie__grid"
+  role="region"
+  aria-label="Listado de películas en español latino"
+>
+  {movies.map(movie => (
+    <Card movie={movie}/> 
+  ))} 
+  {path && <SeeMoreCard path={path}/>}
+</div>
+
+<style>
+  .movie__grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(260px, 1fr)
+    );
+    gap: 16px;
+  }
+ </style>
