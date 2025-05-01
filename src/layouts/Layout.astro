@@ -2,11 +2,11 @@
 import "../styles/global.css"
 import Navbar from "../components/Navbar.astro"
 import Footer from "../components/Footer.astro"
-const domain = "https://antoinepdev/.github.io/cinee"
+const domain = "https://antoinepdev.github.io/cinee"
 const {
   title,
   desc,
-  ogImg=`${domain}/assets/portada.jpg`,
+  ogImg=`${domain}/portada.jpg`,
   ogUrl,
   ogType="website",
   keywords="descargar películas gratis, películas en español latino, películas en castellano, cine latino, películas completas, películas HD, estrenos gratis, películas Telegram, cine online gratis"
@@ -18,8 +18,8 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/svg+xml" href="/cinee/favicon.png" />
+    <link rel="sitemap" href="cinee/sitemap-index.xml" />
     <link rel="canonical" href={domain} />
 		<meta name="generator" content={Astro.generator} />
     <meta name="description" content={desc}/>
