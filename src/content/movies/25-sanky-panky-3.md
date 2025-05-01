@@ -6,7 +6,7 @@ year: 2018
 popular: true
 quality: "HD"
 language: "Esp Latino"
-category: ["Comedy"]
+genre: ["Comedy"]
 url: "http://t.me/birdsender_bot?start=3279"
 description: "Continúan las ocurrencias de Chelo, Carlito y Genaro por tratar de tener una mejor vida. Finalmente alcanzan su objetivo de dejar la República Dominicana en busca de una visa, pero en Puerto Rico se siguen metiendo en problemas."
 ---

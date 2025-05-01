@@ -6,7 +6,7 @@ year: 2017
 popular: true
 quality: "HD"
 language: "Esp Latino"
-category: ["Biography"," Drama"," Musical"]
+genre: ["Biography"," Drama"," Musical"]
 url: "http://t.me/birdsender_bot?start=3255"
 description: "P.T. Barnum se entrega a su imaginación para crear el circo Barnum & Bailey en el siglo XIX. Con números musicales, artistas exóticos y hazañas, el fascinante espectáculo toma al mundo por asalto para convertirse en el mejor espectáculo de la Tierra"
 ---

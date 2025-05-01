@@ -6,7 +6,7 @@ year: 2023
 popular: true
 quality: "HD"
 language: "Esp Latino"
-category: ["Action"," Thriller"]
+genre: ["Action"," Thriller"]
 url: "http://t.me/birdsender_bot?start=3281"
 description: "Una agente del Gobierno adopta una nueva identidad y abandona a su hija recién nacida para protegerla de sus enemigos. Años más tarde, unos criminales secuestran a la chica, lo que obliga a la madre a abandonar el anonimato para salvarla."
 ---

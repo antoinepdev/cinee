@@ -6,7 +6,7 @@ year: 2007
 popular: true
 quality: "HD"
 language: "Esp Latino"
-category: ["Comedy"," Musical"]
+genre: ["Comedy"," Musical"]
 url: "http://t.me/birdsender_bot?start=3275"
 description: "Genaro decide probar suerte y se pone como objetivo conocer una mujer blanca y rica que lo saque de su pobreza."
 ---

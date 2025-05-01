@@ -6,7 +6,7 @@ year: 2004
 popular: true
 quality: "HD"
 language: "Esp Latino"
-category: ["Comedy"," Crime"]
+genre: ["Comedy"," Crime"]
 url: "http://t.me/birdsender_bot?start=3273"
 description: "Dos desafortunados agentes del FBI se hacen pasar por dos chicas, novatas en la alta sociedad para investigar una serie de secuestros. Pero mientras preparan su plan, descubren que irrumpir en la alta sociedad es mucho más duro de lo que creían."
 ---

@@ -6,7 +6,7 @@ year: 2025
 popular: true
 quality: "CAM"
 language: "Esp Latino"
-category: ["Action"," Crime"," Drama"]
+genre: ["Action"," Crime"," Drama"]
 url: "http://t.me/birdsender_bot?start=3263"
 description: "Tras un robo de drogas, un policía lucha contra el submundo criminal de una ciudad corrupta para intentar localizar al hijo de un político."
 ---
