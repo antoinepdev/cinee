@@ -10,4 +10,3 @@ img: "https://m.media-amazon.com/images/M/MV5BOWU4NjNjNzYtYWFhYy00MTA2LWIwNzctNm
 url: "http://t.me/birdsender_bot?start=3107"
 quality: "CAM"
 ---
-

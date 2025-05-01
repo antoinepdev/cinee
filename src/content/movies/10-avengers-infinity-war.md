@@ -8,4 +8,5 @@ language: "Esp Latino"
 genre: ["Action", " Adventure", " Sci-Fi"]
 url: "http://t.me/birdsender_bot?start=3247"
 description: "\nLos superhéroes se alían para vencer al poderoso Thanos, el peor enemigo al que se han enfrentado. Si Thanos logra reunir las seis gemas del infinito: poder, tiempo, alma, realidad, mente y espacio, nadie podrá detenerlo."
+quality: "HD"
 ---
