@@ -37,6 +37,24 @@ const ogUrl= `/movie/${slug}`
 ---
 
 <Layout title={title} desc={desc} keywords={keywords} ogUrl={ogUrl} ogImg={movie.img}>
+  <!-- Banner AdsTerra 320x50 (solo en móvil) -->
+  <div class=" md:hidden w-full flex justify-center mt-4 mb-6 px-4">
+    <div class="max-w-[320px] overflow-hidden">
+      <script type="text/javascript">
+        atOptions = {
+          'key': '6598ba8779e1f3b77fca2c5e8878f3f4',
+          'format': 'iframe',
+          'height': 50,
+          'width': 320,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/6598ba8779e1f3b77fca2c5e8878f3f4/invoke.js"></script>
+    </div>
+  </div>
+
+
+
   <main class="w-full max-w-6xl mx-auto px-4 py-10 flex flex-col lg:flex-row gap-10 items-start">
     {/* Movie Image */}
     <picture class="w-full lg:w-1/2">
