@@ -3,7 +3,7 @@ id: 13
 img: "https://m.media-amazon.com/images/M/MV5BOGYzOGI0YTUtNTAwYy00M2JhLTgyODEtMjlhZTk1Yzc5ZTBhXkEyXkFqcGc@._V1_SX300.jpg"
 title: "Blood Diamond"
 year: 2006
-popular: true
+popular: false
 quality: "HD"
 language: "Esp Latino"
 genre: ["Adventure"," Drama"," Thriller"]

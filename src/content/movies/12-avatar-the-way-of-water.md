@@ -3,7 +3,7 @@ id: 12
 img: "https://m.media-amazon.com/images/M/MV5BNmQxNjZlZTctMWJiMC00NGMxLWJjNTctNTFiNjA1Njk3ZDQ5XkEyXkFqcGc@._V1_SX300.jpg"
 title: "Avatar: The Way of Water"
 year: 2022
-popular: true
+popular: false
 quality: "HD"
 language: "Esp Latino"
 genre: ["Action"," Adventure"," Fantasy"]

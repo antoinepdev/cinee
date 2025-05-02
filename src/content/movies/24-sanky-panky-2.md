@@ -3,7 +3,7 @@ id: 24
 img: "https://m.media-amazon.com/images/M/MV5BY2E2YTM4NTktYzgzMi00MGJkLWFlNmUtMzRiZmE2NmI3MGNjXkEyXkFqcGdeQXVyMTEwNDEzMzUx._V1_SX300.jpg"
 title: "Sanky Panky 2"
 year: 2013
-popular: true
+popular: false
 quality: "HD"
 language: "Esp Latino"
 genre: ["Comedy"]
