@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 import Slider from "../components/Slider.astro"
 import Grid from "../components/Grid.astro"
+import NativeBanner from "../components/ads/NativeBanner.astro"
 const title = "Descargar Películas Gratis en Español | Cinee"
 const desc = "Descarga películas gratis en español latino, castellano y subtitulado en calidad HD. Estrenos 2025, populares, clásicos, acción, comedia y más."
 
@@ -20,6 +21,7 @@ const movies = allMovies.length < 5 ? allMovies : allMovies.splice(0, 4)
 ---
 
 <Layout title={title} desc={desc} ogUrl="/">
+  <NativeBanner />
   <main class="px-4">
     <h1 class="font-extrabold text-3xl my-6">Películas Gratis en Español Latino</h1>
 

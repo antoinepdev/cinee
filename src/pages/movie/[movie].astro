@@ -2,8 +2,8 @@
 import { getCollection } from 'astro:content'
 import Layout from "../../layouts/Layout.astro"
 import Grid from "../../components/Grid.astro"
+import NativeBanner from "../../components/ads/NativeBanner.astro"
 import Timeline from "../../components/ui/Timeline.astro"
-import { ads } from "../../ads/adsTerra.config.js"
 
 
 export async function getStaticPaths() {
@@ -37,21 +37,6 @@ const ogUrl= `/movie/${slug}`
 ---
 
 <Layout title={title} desc={desc} keywords={keywords} ogUrl={ogUrl} ogImg={movie.img}>
-  <!-- Banner AdsTerra 320x50 (solo en móvil) -->
-  <div class=" md:hidden w-full flex justify-center mt-4 mb-6 px-4">
-    <div class="max-w-[320px] overflow-hidden">
-      <script type="text/javascript">
-        atOptions = {
-          'key': '6598ba8779e1f3b77fca2c5e8878f3f4',
-          'format': 'iframe',
-          'height': 50,
-          'width': 320,
-          'params': {}
-        };
-      </script>
-      <script type="text/javascript" src="//www.highperformanceformat.com/6598ba8779e1f3b77fca2c5e8878f3f4/invoke.js"></script>
-    </div>
-  </div>
 
 
 
@@ -67,6 +52,8 @@ const ogUrl= `/movie/${slug}`
       />
     </picture>
   
+    <NativeBanner /> 
+
     {/* Movie Info */}
     <div class="w-full lg:w-1/2 flex flex-col gap-4 text-[#EAEAEA]">
       <a
@@ -82,7 +69,7 @@ const ogUrl= `/movie/${slug}`
         <p class="text-xl mb-3 font-bold outline-gray-500">¿Cómo descargar cualquier película?</p>
         <Timeline />
       </div>
-  
+
       <h1 class="text-3xl md:text-4xl font-bold">{movie.title}</h1>
       <p class="text-[#B0BEC5] text-sm">Año: {movie.year}</p>
       <p class="text-[#B0BEC5] text-sm">Idioma: {movie.language}</p>
