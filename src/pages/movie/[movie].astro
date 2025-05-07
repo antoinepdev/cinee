@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content'
 import Layout from "../../layouts/Layout.astro"
 import Grid from "../../components/Grid.astro"
 import NativeBanner from "../../components/ads/NativeBanner.astro"
+import { ads } from "../../ads/adsTerra.config.js"
 import Timeline from "../../components/ui/Timeline.astro"
 
 
@@ -56,14 +57,14 @@ const ogUrl= `/movie/${slug}`
 
     {/* Movie Info */}
     <div class="w-full lg:w-1/2 flex flex-col gap-4 text-[#EAEAEA]">
-      <a
-        href={movie.url}
-        target="_blank"
+      <button
+        data-ad-url={ads.directLink}
+        data-movie-url={movie.url}
         class="adBtn mt-4 bg-[#9C27B0] hover:bg-[#7B1FA2] text-white text-center text-lg font-semibold px-6 py-3 rounded shadow-lg transition duration-300"
         aria-label={`Acceder a la película ${movie.title} en Telegram`}
       >
         Obtener ahora
-      </a>
+      </button>
   
       <div class="w-full mx-auto border border-gray-700 rounded p-4">
         <p class="text-xl mb-3 font-bold outline-gray-500">¿Cómo descargar cualquier película?</p>
@@ -92,6 +93,25 @@ const ogUrl= `/movie/${slug}`
     <Grid movies = {recommendedMovies} path="/cinee/movies/all/1"/>
   </section>
 
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    let adClicked = false;
 
+    document.querySelectorAll(".adBtn").forEach(button => {
+      button.addEventListener("click", (e) => {
+        const adUrl = button.getAttribute("data-ad-url");
+        const movieUrl = button.getAttribute("data-movie-url");
+
+        if (!adClicked) {
+          window.open(adUrl, '_blank');
+          adClicked = true;
+          e.preventDefault(); // evita que se redirija aún
+        } else {
+          window.location.href = movieUrl;
+        }
+      });
+    });
+  });
+</script>
  
 </Layout>
